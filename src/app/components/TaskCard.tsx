@@ -7,7 +7,7 @@ type Task = {
   id: string;
   title: string;
   description: string;
-  completed: boolean;
+  done: boolean;
 };
 
 export default function TaskCard(task: Task) {
@@ -27,14 +27,43 @@ export default function TaskCard(task: Task) {
       }
     }
   };
+  const handleTaskdone = async (id: string) => {
+    try {
+      const response = await axios.post(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/tasks/${id}/done/`
+      );
+      console.log(response);
+      if (response.status === 200) {
+        router.refresh();
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
   return (
     <div className="bg-slate-500 px-4 py-3 mb-2 rounded-md text-slate-200 flex justify-between items-center">
       <div>
-        <h1 className="text-lg font-bold">{task.title}</h1>
+        <h1 className="text-lg font-bold">
+          {task.title}
+
+          {task.done && <span>✅</span>}
+        </h1>
         <p>{task.description}</p>
       </div>
       <div className="flex gap-x-4">
-        <button className="bg-green-500 p-2 rounded-md text-white">Edit</button>
+        <button className="bg-orange-500 p-2 rounded-md text-white">
+          Edit
+        </button>
+        <button
+          onClick={() => handleTaskdone(task.id)}
+          className={
+            "p-2 rounded-md text-white" +
+            (task.done ? " bg-green-500" : " bg-gray-600")
+          }
+        >
+          done/undone
+        </button>
+
         <button
           onClick={() => handleDelete(task.id)}
           className="bg-red-500 p-2 rounded-md text-white"

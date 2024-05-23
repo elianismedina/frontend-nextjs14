@@ -17,7 +17,7 @@ type Task = {
   id: string;
   title: string;
   description: string;
-  completed: boolean;
+  done: boolean;
 };
 
 export default async function TasksList(task: Task) {
@@ -33,7 +33,7 @@ export default async function TasksList(task: Task) {
           id={task.id}
           title={task.title}
           description={task.description}
-          completed={task.completed}
+          done={task.done}
         />
       ))}
     </div>
