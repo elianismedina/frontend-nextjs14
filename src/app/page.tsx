@@ -1,7 +1,13 @@
-import TasksForm from "./components/TasksForm";
+import TasksForm, { taskSchema } from "./components/TasksForm";
 import TasksList from "./components/TasksList";
 
 export const dynamic = "force-dynamic";
+type Task = {
+  id: string;
+  title: string;
+  description: string;
+  done: boolean;
+};
 
 export default function Home() {
   return (

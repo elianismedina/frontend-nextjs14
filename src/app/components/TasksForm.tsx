@@ -40,7 +40,7 @@ export default function TasksForm() {
   return (
     <div>
       <div>
-        <h1>Add task</h1>
+        <h1 className="font-bold text-lg">Add task</h1>
       </div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <label htmlFor="title" className="text-white text-xs">

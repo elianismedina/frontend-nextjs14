@@ -61,7 +61,7 @@ export default function TaskCard(task: Task) {
             (task.done ? " bg-green-500" : " bg-gray-600")
           }
         >
-          done/undone
+          {task.done ? "Mark Undone" : "Mark Done"}
         </button>
 
         <button
