@@ -15,7 +15,7 @@ export default function Home() {
       <h1 className="p-4 text-2xl font-bold">Tasks app</h1>
       <div className="grid grid-cols-2 gap-8 p-8">
         <TasksForm />
-        <TasksList />
+        <TasksList id={""} title={""} description={""} done={false} />
       </div>
     </div>
   );
