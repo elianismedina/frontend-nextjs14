@@ -39,51 +39,53 @@ export default function TasksForm() {
 
   return (
     <div>
-      <div>
+      <div className="flex items-center justify-center">
         <h1 className="font-bold text-lg">Add task</h1>
       </div>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <label htmlFor="title" className="text-white text-xs">
-          Title:
-        </label>
-        <input
-          {...register("title", {
-            required: "Title is required",
-            minLength: {
-              value: 3,
-              message: "Title must be at least 3 characters",
-            },
-          })}
-          type="text"
-          className="bg-slate-400 rounded-md p-2 w-full mb-2 block text-slate-900"
-        />
-        {errors.title && (
-          <span className="text-red-500 text-xs">{`${errors.title.message}`}</span>
-        )}
-        <label htmlFor="description" className="text-white text-xs">
-          Description:
-        </label>
-        <textarea
-          {...register("description", {
-            required: "Description is required",
-            minLength: {
-              value: 10,
-              message: "Description must be at least 10 characters",
-            },
-          })}
-          className="bg-slate-400 rounded-md p-2 w-full mb-2 block text-slate-900"
-        ></textarea>
-        {errors.description && (
-          <span className="text-red-500 text-xs">{`${errors.description.message}`}</span>
-        )}
-        <button
-          type="submit"
-          className="bg-indigo-500 text-white rounded-md p-2 block w-full"
-          disabled={isSubmitting}
-        >
-          Add task
-        </button>
-      </form>
+      <div className="flex flex-col w-screen justify-center items-center">
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <label htmlFor="title" className="text-white text-xs">
+            Title:
+          </label>
+          <input
+            {...register("title", {
+              required: "Title is required",
+              minLength: {
+                value: 3,
+                message: "Title must be at least 3 characters",
+              },
+            })}
+            type="text"
+            className="bg-slate-400 rounded-md p-2 w-full mb-2 block text-slate-900"
+          />
+          {errors.title && (
+            <span className="text-red-500 text-xs">{`${errors.title.message}`}</span>
+          )}
+          <label htmlFor="description" className="text-white text-xs">
+            Description:
+          </label>
+          <textarea
+            {...register("description", {
+              required: "Description is required",
+              minLength: {
+                value: 10,
+                message: "Description must be at least 10 characters",
+              },
+            })}
+            className="bg-slate-400 rounded-md p-2 w-full mb-2 block text-slate-900"
+          ></textarea>
+          {errors.description && (
+            <span className="text-red-500 text-xs">{`${errors.description.message}`}</span>
+          )}
+          <button
+            type="submit"
+            className="bg-indigo-500 text-white rounded-md p-2 block w-full"
+            disabled={isSubmitting}
+          >
+            Add task
+          </button>
+        </form>
+      </div>
     </div>
   );
 }

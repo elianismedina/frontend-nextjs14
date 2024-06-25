@@ -16,6 +16,7 @@ export default function TaskCard(task: Task) {
   const [edit, setEdit] = useState(false);
   const [newTitle, setNewTitle] = useState(task.title);
   const [newDescription, setNewDescription] = useState(task.description);
+
   const handleDelete = async (id: string) => {
     if (confirm("Are you sure you want to delete this task?")) {
       try {
@@ -68,7 +69,7 @@ export default function TaskCard(task: Task) {
     }
   };
   return (
-    <div className="bg-slate-500 px-4 py-3 mb-2 rounded-md text-slate-200 flex justify-between items-center">
+    <div className="bg-slate-500 px-4 py-3 mb-2 rounded-md text-slate-200 flex flex-col justify-between w-96 ml-12">
       <div className="flex flex-col">
         {!edit ? (
           <h1 className="text-lg font-bold">
@@ -95,7 +96,7 @@ export default function TaskCard(task: Task) {
           />
         )}
       </div>
-      <div className="flex justify-between gap-x-4">
+      <div className="flex flex-row gap-2 mt-4">
         {edit && (
           <button
             className="bg-green-500 p-2 rounded-md text-white"

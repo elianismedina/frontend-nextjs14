@@ -25,8 +25,8 @@ export default async function TasksList(task: Task) {
   console.log(tasks);
 
   return (
-    <div className="bg-slate-700 p-4 w-full rounded-md">
-      <h1 className="text-white text-lg font-bold">Tasks</h1>
+    <div className="bg-slate-700 p-4 w-screen rounded-md flex flex-col gap-4 items-center justify-center">
+      <h1 className="text-white text-lg font-bold mb-4">Tasks</h1>
       {tasks.map((task: Task) => (
         <TaskCard
           key={task.id}
